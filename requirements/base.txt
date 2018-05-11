@@ -6,3 +6,6 @@ dj-database-url==0.5.0
 
 # Postgres driver package
 psycopg2==2.7.4
+
+# Requests: Http for humans
+requests==2.18.4
