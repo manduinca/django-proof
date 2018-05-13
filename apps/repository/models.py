@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.translation import ugettext_lazy as _
 
 
 class Organization(models.Model):
@@ -21,11 +22,23 @@ class Organization(models.Model):
 
     updated_at = models.DateTimeField()
 
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        db_table = 'organization'
+        indexes = [
+            models.Index(fields=['login'])
+        ]
+        verbose_name = _('organization')
+        verbose_name_plural = _('organizations')
+
 
 class Repository(models.Model):
 
     organization = models.ForeignKey(
         Organization,
+        on_delete=models.CASCADE,
     )
 
     github_id = models.PositiveIntegerField()
@@ -43,3 +56,16 @@ class Repository(models.Model):
     created_at = models.DateTimeField()
 
     updated_at = models.DateTimeField()
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        db_table = 'repository'
+        indexes = [
+            models.Index(fields=['name']),
+            models.Index(fields=['created_at']),
+            models.Index(fields=['last_commit'])
+        ]
+        verbose_name = _('repository')
+        verbose_name_plural = _('repositories')

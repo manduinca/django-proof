@@ -41,6 +41,7 @@ DJANGO_APPS = [
 ]
 
 LOCAL_APPS = [
+    'apps.repository'
 ]
 
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS
