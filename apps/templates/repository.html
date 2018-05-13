@@ -19,6 +19,7 @@
                     <th scope="col">#</th>
                     <th scope="col">Id</th>
                     <th scope="col">Name</th>
+                    <th scope="col">Last commit Date</th>
                     <th scope="col">Created Date</th>
                 </tr>
             </thead>
@@ -28,6 +29,7 @@
                     <th scope="row"> {{ forloop.counter }} </th>
                     <td> {{ repo.id }} </td>
                     <td> {{ repo.name }} </td>
+                    <td> {{ repo.last_commit_date }} </td>
                     <td> {{ repo.created_at }} </td>
                 </tr>
             {% endfor %}
